@@ -17,19 +17,26 @@ public class CollegeManager {
 		boolean facultyFull = false;
 		
 		
-		//Allocate memory for new arrays
-		Student[] students = null;
-		Faculty[] faculty = null;
+		//Declare and initialize new arrays
+		Student[] students = new Student[3];
+		Faculty[] faculty = new Faculty[3];
 		
-		//Ask user for person type: S, F, or Q		
+		for (int i=0; i<3; i++){
+			students[i] = new Student();
+		}
+		
+		for (int i=0; i<3; i++){
+			faculty[i] = new Faculty();
+		}
+		
+		//Ask user for person type: S, F, or Q if student/faculty count is less than 3.		
 		while (!studentsFull || !facultyFull){
 			System.out.println("Select the occupation of the person you'd like to enter: \n"
 					+ " [S] for Student\n [F] for Faculty\n [Q] or 'Quit' to quit");
 			personType = userIn.nextLine();
 			switch (personType.toUpperCase()) {
 			case "S":
-				if (students.length < 3){
-					students[studentCount] = new Student();
+				if (studentCount < 3){
 					System.out.println("Enter First Name: ");
 					firstName = userIn.nextLine();
 					students[studentCount].setFirstName(firstName);
@@ -52,10 +59,10 @@ public class CollegeManager {
 					studentCount++;
 				} else {
 					System.out.println("ERROR: Reached maximum allowed number of Students: 3");
-				} break;			
+					studentsFull = true; }
+				break;			
 			case "F":
-				if (faculty.length < 3){
-					faculty[facultyCount] = new Faculty();
+				if (facultyCount < 3){
 					System.out.println("Enter First Name: ");
 					firstName = userIn.nextLine();
 					faculty[facultyCount].setFirstName(firstName);
@@ -75,14 +82,32 @@ public class CollegeManager {
 					faculty[facultyCount].setSalary(salary);
 					System.out.println("Enter isFullTime");
 					String fullTime = userIn.nextLine();
-					if (fullTime.equalsIgnoreCase("TRUE")){
+					if (fullTime.equalsIgnoreCase("true")){
 						isFullTime = true;
 					} else {isFullTime = false;}
 					faculty[facultyCount].setFullTime(isFullTime);
 					facultyCount++;
 				} else {
 					System.out.println("ERROR: Reached maximum allowed number of Faculty: 3");
-				} break;
+					facultyFull = true; }
+				break;
+			case "Q":
+				//Quit: Display student and faculty info
+				for (int i=0; i<studentCount; i++){
+					students[i].toString();
+				}
+				for (int i=0; i<facultyCount; i++){
+					faculty[i].toString();
+				}
+			}
+			
+			//Outside of while loop if students and faculty are full. 
+			//Display student and faculty info
+			for (int i=0; i<studentCount; i++){
+				students[i].toString();
+			}
+			for (int i=0; i<facultyCount; i++){
+				faculty[i].toString();
 			}
 		}
 	}

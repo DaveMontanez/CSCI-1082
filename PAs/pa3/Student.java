@@ -5,6 +5,9 @@ public class Student extends Person{
 	private double gpa;
 	private String major;
 	
+	public Student(){
+	}
+	
 	public double getGpa() {
 		return gpa;
 	}
@@ -20,12 +23,17 @@ public class Student extends Person{
 	public void setMajor(String major) {
 		this.major = major;
 	}
-	
+	/*
 	@Override
 	public String toString(){
 		String studentInfo = "\tFirst Name: " + this.getFirstName() + "\n\tLastName: "
 				+ this.getLastName() + "\n\tAddress: " + this.getAddress() + "\n\tPhone: "
 				+ this.getPhoneNumber() + "\n\tMajor: " + this.major + "\n\tGPA: " + this.gpa;
 		return studentInfo;
+	} */
+	
+	public String toString(){
+		return super.toString() + "\n\tMajor: " + major 
+				+ "\n\tGPA: " + gpa;
 	}
 }
