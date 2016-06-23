@@ -1,5 +1,8 @@
 package pa3;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Faculty extends Person{
 	
 	private double salary;
@@ -32,10 +35,10 @@ public class Faculty extends Person{
 	
 	@Override 
 	public String toString(){
-		String facultyInfo = "\tFirst Name: " + this.getFirstName() + "\n\tLastName: "
-				+ this.getLastName() + "\n\tAddress: " + this.getAddress() + "\n\tPhone: "
-				+ this.getPhoneNumber() + "\n\tDepartment: " + this.department + 
-				"\n\tFull Time: " + this.isFullTime + "\n\tSalary: " + salary;
-		return facultyInfo;
+		Locale locale = new Locale("en", "US");
+		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
+		String salaryFormatted = currencyFormatter.format(salary);
+		return super.toString() + "\tDepartment: " + department + 
+				"\n\tFull Time: " + isFullTime + "\n\tSalary: " + salaryFormatted + "\n";
 	}
 }
