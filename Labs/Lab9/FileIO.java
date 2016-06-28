@@ -22,7 +22,7 @@ public class FileIO {
 		}
 		
 		//Print 100 randomly integers between 1 and 100
-		System.out.println("Writing 100 random integers to file...");			
+		System.out.println("Writing 100 random integers to file 'data.txt'...");			
 		for (int i=0; i<100; i++){
 			outStream.println((int) (Math.random() * 101));
 		}		
@@ -49,6 +49,10 @@ public class FileIO {
 			e.printStackTrace();
 		}
 		
+		System.out.println("Transferring contents of 'data.txt' to "
+				+ "new file called 'outdata.txt'...");
+		
+		//if data.txt has contents, copy contents to outdata.txt
 		while (inStream.hasNextLine()){
 			String s = inStream.nextLine();
 			outdataStream.println(s);
