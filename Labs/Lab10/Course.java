@@ -47,9 +47,9 @@ public class Course {
 	public void listOfStudents(){
 		System.out.println("List of students: ");
 		
+		//enhanced for loop to display student names
 		for(String s : students) {
-			System.out.println("\t\t " + s.toString());
-			
+			System.out.println("\t\t " + s);			
 		}
 	}
 	
