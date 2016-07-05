@@ -50,8 +50,7 @@ public class Item implements Comparable<Item>{
 	
 	public String toString(){
 		return this.uid + " | " + this.name + " | " + this.description 
-						+ " || " + price;
-		
+						+ " || " + price;		
 	}
 
 	//Required method when implementing Comparable. Compares UID between objects.
@@ -60,11 +59,9 @@ public class Item implements Comparable<Item>{
 		Integer currentUID = this.getUID();
 		int compareInt = newUID.compareTo(currentUID);
 		if (compareInt < 0){
-			return 1;				//this.uid is less
+			return 1;				
 		} else if (compareInt > 0) {
-			return -1;				//newItem.uid is less
-		} else return 0;			//both are equal		
+			return -1;				
+		} else return 0;				
 	}
-	
-
 }

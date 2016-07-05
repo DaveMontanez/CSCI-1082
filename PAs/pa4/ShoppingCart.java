@@ -49,12 +49,7 @@ public class ShoppingCart {
 		}
 		
 		//Display unsorted itemList
-		System.out.println("\n**********************************************");
-		for (Item item : itemList){
-			System.out.println(item.getUID() + " " + item.getName() + " " +
-					item.getDescription() + " " + item.getPrice());
-		}
-		System.out.println("**********************************************");
+		arrayDisplay(itemList);
 		
 		//Sort now-filled itemArray using Collections.
 		Collections.sort(itemList);
@@ -67,13 +62,8 @@ public class ShoppingCart {
 			outFile.println(itemInfo);		
 		}
 		
-		//Display sorted itemList
-		System.out.println("\n**********************************************");
-		for (Item item : itemList){
-			System.out.println(item.getUID() + " " + item.getName() + " " +
-					item.getDescription() + " " + item.getPrice());
-		}
-		System.out.println("**********************************************");
+		//Display sorted Array
+		arrayDisplay(itemList);
 
 		inFile.close();
 		outFile.close();
@@ -101,6 +91,17 @@ public class ShoppingCart {
 		} else {
 			System.out.println("Item with uid: " + uid + " NOT found!!");
 		}
+	}
+	
+	//Method to display ArrayList
+	private static void arrayDisplay(ArrayList<Item> itemList){
+		
+		System.out.println("\n**********************************************");
+		for (Item item : itemList){
+			System.out.println(item.getUID() + " " + item.getName() + " " +
+					item.getDescription() + " " + item.getPrice());
+		}
+		System.out.println("**********************************************");
 	}
 
 }
