@@ -35,7 +35,7 @@ public class GuiManager extends JFrame implements ActionListener{
 	private JButton displayBtn = new JButton("Display");
 	private JButton deleteBtn = new JButton("Delete");
 	
-	Font font = new Font("Apple Casual", Font.BOLD, 20);
+	Font font = new Font("Apple Casual", Font.PLAIN, 16);
 	final Runnable SOUND = (Runnable)Toolkit.getDefaultToolkit().getDesktopProperty
 		    ("win.sound.default");
 	
